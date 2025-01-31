@@ -26,12 +26,34 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 <h2>High-Level Deployment and Configuration Steps</h2>
 
-- Step 1
-- Step 2
-- Step 3
-- Step 4
+- Part 1: Preparing the Active Directory Infrastructure in Azure
+- Part 2: Installing and Deploying Active Directory
+- Part 3: Creating Users with Powershell
+- Part 4: Group Policy and Managing User Accounts
 
 <h2>Deployment and Configuration Steps</h2>
+
+<h3>Part 1: Preparing the Active Directory Infrastructure</h3>
+
+[![Video Title](https://img.youtube.com/vi/LLMdGsnudck/0.jpg)](https://youtu.be/LLMdGsnudck?si=UQNqhanKu6ccev3g)
+
+<b>1) Setup Domain Controller</b>
+
+Navigate to the Azure homepage to create a `Resource Group` and select `Review + Create` on the bottom left. 
+
+![image](https://github.com/user-attachments/assets/f01ebb5f-2402-4e85-8100-0b679f254d86)
+
+<b>*Note*: No additional information is required to be entered under the `Tag` tab</b>
+
+Navigate back to the Azure homepage or type in the search bar `Virtual Network` to create the network in which both Virtual Machines (Windows Server & Windows OS) will communicate. Select `Review + Create` until you get to the final tab.
+
+![image](https://github.com/user-attachments/assets/8f91d0d7-d627-481f-85ca-20368f090887)
+
+<b>*Note*: No additional information is required to be entered under the additional tabs</b>
+
+Create the Domain Controller (Windows Server 2022) Virtual Machine by navgiating to the Azure homepage. Select `Virtual Machine`
+
+
 
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
