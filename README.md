@@ -39,19 +39,44 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 <b>1) Setup Domain Controller</b>
 
-Navigate to the Azure homepage to create a `Resource Group` and select `Review + Create` on the bottom left. 
+- Navigate to the Azure homepage to create a `Resource Group` and select `Review + Create` on the bottom left. 
 
 ![image](https://github.com/user-attachments/assets/f01ebb5f-2402-4e85-8100-0b679f254d86)
 
 <b>*Note*: No additional information is required to be entered under the `Tag` tab</b>
 
-Navigate back to the Azure homepage or type in the search bar `Virtual Network` to create the network in which both Virtual Machines (Windows Server & Windows OS) will communicate. Select `Review + Create` until you get to the final tab.
+- Navigate back to the Azure homepage or type in the search bar `Virtual Network` to create the network in which both Virtual Machines (Windows Server & Windows OS) will communicate. Select `Review + Create` until you get to the final tab.
 
 ![image](https://github.com/user-attachments/assets/8f91d0d7-d627-481f-85ca-20368f090887)
 
 <b>*Note*: No additional information is required to be entered under the additional tabs</b>
 
-Create the Domain Controller (Windows Server 2022) Virtual Machine by navgiating to the Azure homepage. Select `Virtual Machine`
+- Create the Domain Controller (Windows Server 2022) VM by navgiating to the Azure homepage. <br>
+      a) Select `Virtual Machine`
+
+  ![image](https://github.com/user-attachments/assets/608e45a3-9426-4aa1-a20b-909759310cd5)
+  ![image](https://github.com/user-attachments/assets/4978867e-f1f6-44da-b805-4e75fe5fa298)
+  ![image](https://github.com/user-attachments/assets/8bbd2598-13c7-4d21-8502-361ff93b8674) <br>
+      b) Navigate to the `Networking` tab to ensure that the virtual network created in the previous step is selected. Then select `Review + Create`.
+
+  ![image](https://github.com/user-attachments/assets/9331e64b-1fba-4bb4-8b52-01becec0399d)
+
+<b>2) Setup Client Computer</b>
+
+- Navigate to the Azure homepage to create a `Virtual Machine`
+
+![image](https://github.com/user-attachments/assets/5a319eb7-0c55-4197-8265-cff95e57a087)
+![image](https://github.com/user-attachments/assets/f6653e04-a454-4f72-a67d-40311f56cc2e)
+![image](https://github.com/user-attachments/assets/356fa969-c426-4ba1-9fc8-7709a1666151) <br>
+    a) Navigate to the `Networking` tab to ensure that the virtual network created in the previous step is selected. Then select `Review + Create`.
+
+![image](https://github.com/user-attachments/assets/b0a6e8ab-4864-410a-acf2-2889ddf6b1b2)
+
+<b>3) Set Private IP Settings for Domain Controller to `Static`</b>
+
+- Navigate to the Azure homepage and select the VM for the `Domain Controller`.
+![image](https://github.com/user-attachments/assets/617fe3d9-c1df-4a25-8ccf-be6924bf452e)
+
 
 
 
