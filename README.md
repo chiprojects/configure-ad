@@ -77,6 +77,19 @@ This tutorial outlines the implementation of on-premises Active Directory within
 - Navigate to the Azure homepage and select the VM for the `Domain Controller`.
 ![image](https://github.com/user-attachments/assets/617fe3d9-c1df-4a25-8ccf-be6924bf452e)
 
+- Select `Network Settings` > `Network Interface / IP Configuration` > `IP Configurations` > `ipconfig1` > Select `Static` under <b>Private IP address settings</b>
+
+![image](https://github.com/user-attachments/assets/f7f073f3-9a4b-421d-ba6f-c4473c7887a0)
+
+<b>4) Set Client Computer's DNS Settings to Domain Controller's Private IP Address</b>
+
+- Navigate to the Azure homepage and select the VM for the `Client Computer`.
+
+- Select `Network Settings` > `Network Interface / IP Configuration` > `DNS Servers` > `Custom` > Type in Domain Controller's Private IP Address under  <b>DNS server</b> > `Save`.
+
+![image](https://github.com/user-attachments/assets/8352af8c-9529-43fb-9ade-7acda928333a)
+
+![image](https://github.com/user-attachments/assets/9f7e62c4-68ca-4ff4-8125-4b58cff8ef81)
 
 
 
