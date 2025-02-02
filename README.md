@@ -91,6 +91,48 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 ![image](https://github.com/user-attachments/assets/9f7e62c4-68ca-4ff4-8125-4b58cff8ef81)
 
+<b>5)Disable Domain Controller's Firewall Settings(for testing connectivity)</b>
+
+- Open `Remote Desktop Connection` and enter Public IP Address for the Domain Controller Virtual Machine
+
+![image](https://github.com/user-attachments/assets/c23e4c71-ea5f-4df8-90b2-5cc7b9ebc6e8)
+
+<b>*Note*:</b> If not selected already, be sure to select the `Show Options` button to enter the VM account information (username & password) created earlier
+
+- Open`Control Panel` from the start menu: <img src="https://github.com/user-attachments/assets/2cefedd8-2966-4817-ae8d-3ae3eee68ba5" height="3%" width="3%" alt="Windows Start Menu"/> and navigate to the following: `System & Security` > `Windows Defender Firewall` > Select `Turn Windows Defender On or Off`
+
+![image](https://github.com/user-attachments/assets/eb443f86-c0f4-42bd-8633-1488599a1823)
+
+- Under `Private & Public Network Settings` select `Turn off Windows Defender Firewall(not recommended)` > `OK`
+
+![image](https://github.com/user-attachments/assets/f6486e69-6124-4721-8a27-74cde78a3046)
+
+<b>6)Ping the Domain Controller from the Client Computer(for testing connectivity)</b>
+
+- Restart the Client computer from the Azure Portal and login using `Remote Desktop Connection`
+![image](https://github.com/user-attachments/assets/21398853-aa74-446d-a3ea-a2e2ac7ec6e6)
+![image](https://github.com/user-attachments/assets/925309ff-bbae-4e8a-b1fb-8dfc6d232346)
+
+- Open up Powershell from the start menu: <img src="https://github.com/user-attachments/assets/2cefedd8-2966-4817-ae8d-3ae3eee68ba5" height="3%" width="3%" alt="Windows Start Menu"/> and copy the Private IP for the Domain Controller into the ping command.
+![image](https://github.com/user-attachments/assets/4144b78d-9cd3-4392-8b0d-46468c7cb8f4)
+
+![image](https://github.com/user-attachments/assets/9d9c745a-ad49-4e48-b789-7fde8dc21c27)
+
+<b>7)Verify the DNS Settings</b>
+
+- Run `ipconfig/all` in Powershell, still logged into the Client computer to ensure the DNS points to the Domain Controller
+
+![image](https://github.com/user-attachments/assets/5ca39a1a-1819-4fe2-a6aa-4a795eb22b5d)
+
+
+
+<h3>Part 2: Installing and Deploying Active Directory</h3>
+
+[![Video Title](https://img.youtube.com/vi/LLMdGsnudck/0.jpg)](https://youtu.be/LLMdGsnudck?si=UQNqhanKu6ccev3g)
+
+
+
+
 
 
 <p>
