@@ -130,6 +130,62 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 [![Video Title](https://img.youtube.com/vi/9SDWDI7HGvo/0.jpg)](https://youtu.be/9SDWDI7HGvo?si=KfihjFA-8LMuU134)
 
+<b>1) Install Active Directory</b>
+
+- Log into the `Domain Controller`
+
+![image](https://github.com/user-attachments/assets/82ed4db5-330a-4897-b62c-02c8a977fb91)
+
+- With the Server Manager Dashboard pulled up, select `Add Roles and Features`
+
+![image](https://github.com/user-attachments/assets/12ecc9a6-73c7-4b97-a268-e06f71e7a95b)
+
+- Continue to select `Next`until you reach the `Select server roles` tab > Select `Active Directory Domain Services`> `Add Features` > `Next`
+
+![image](https://github.com/user-attachments/assets/6db9b187-2e5d-4878-8bf4-de6283b39520)
+
+- Continue to select `Next` until you reach the `Confirm installation selections` page > Select `Restart the destination server automatically if required`> `Install`.
+
+![image](https://github.com/user-attachments/assets/e8ce15b8-dcc7-4472-80d3-d43069ae30c2)
+
+- Once installation is complete, navigate back to the `Server Manager` dashboard and select the flag to the left of the `Manage` tab on the top right-hand corner. Select `Promote this server to a domain controller`
+
+![image](https://github.com/user-attachments/assets/d90ae286-ea9a-4928-aa89-a2f01dacd1f4)
+
+- With the Active Directory Domain Services Configuration Wizard pulled up, select `Add a new forest` > Enter a`root domain name`> `Next`
+![image](https://github.com/user-attachments/assets/ae5bdebc-b558-4821-a05a-80753027b7f4)
+
+- Under the `Domain Controller Options` create and confirm a `Directory Services Restore Mode` password > `Next`
+    <br>  <b>Note:</b>: This will not be needed moving forward into the tutorial.
+
+![image](https://github.com/user-attachments/assets/0ecefb89-f458-4956-9772-8c2ce563988a)
+
+- Unselect the `Create DNS delegation` > `Next`
+
+- Continue to select <b>Next</b> until you reach the `Installation` tab as the server gets ready to install AD > `Install`
+    <br>  <b>Note</b>: The server will restart at this point, so go ahead and sign back into the Domain Controller
+
+- Sign into the domain controller as `mydomain.com\yourusername` (ex.mydomain.com\cyberbaddy)
+
+![image](https://github.com/user-attachments/assets/5a6881e6-3644-4aa3-9bab-c3b5183b24d3)
+
+<b>2)Create a Domain Admin</b>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <p>
