@@ -12,6 +12,9 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 - ### [YouTube: How to Deploy on-premises Active Directory within Azure Compute](https://youtu.be/9SDWDI7HGvo) - Part 2
 
+- ### [YouTube: How to Create Users with Powershell](https://youtu.be/ozonZSqeWPM) - Part 3
+
+
 <h2>Environments and Technologies Used</h2>
 
 - Microsoft Azure (Virtual Machines/Compute)
@@ -155,8 +158,8 @@ This tutorial outlines the implementation of on-premises Active Directory within
 - With the Active Directory Domain Services Configuration Wizard pulled up, select `Add a new forest` > Enter a`root domain name`> `Next`
 ![image](https://github.com/user-attachments/assets/ae5bdebc-b558-4821-a05a-80753027b7f4)
 
-- Under the `Domain Controller Options` create and confirm a `Directory Services Restore Mode` password > `Next`
-    <br>  <b>Note:</b>: This will not be needed moving forward into the tutorial.
+- Under the `Domain Controller Options` tab create and confirm a `Directory Services Restore Mode` password > `Next`
+    <br>  <b>Note:</b> This will not be needed moving forward into the tutorial.
 
 ![image](https://github.com/user-attachments/assets/0ecefb89-f458-4956-9772-8c2ce563988a)
 
@@ -190,16 +193,71 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 ![image](https://github.com/user-attachments/assets/9eb96e76-fdf0-4984-8943-a554b741738f)
 
-With the `Select Groups` window pulled up, select `Add` and type `Domain Admins` under the field named `Enter the object names to select`> OK > Add > OK
+- With the `Select Groups` window pulled up, select `Add` and type `Domain Admins` under the field named `Enter the object names to select`> `Check Names`> OK > Apply > OK
 
 ![image](https://github.com/user-attachments/assets/6d7a579c-16ad-4ec6-a357-2da0c9278b1b)
 
+<br> <b>Note:</b> Please make sure you select `Apply` before closing out the window
+
+- Log out and log back in as `mydomain.com\`usernamehere`
+
+![image](https://github.com/user-attachments/assets/9e1d342a-b0c8-440f-a216-137856d800c2)
 
 
 
+<b>3)Join Client computer to Domain Controller</b>
+
+- Login into the `Client` computer
+![image](https://github.com/user-attachments/assets/a9408963-3505-4c82-8d08-0d9401260162)
+
+- Navigate to the `Start` menu: <img src="https://github.com/user-attachments/assets/2cefedd8-2966-4817-ae8d-3ae3eee68ba5" height="3%" width="3%" alt="Windows Start Menu"/> and open `System` settings > `Rename this PC (advanced)`
+
+![image](https://github.com/user-attachments/assets/10841f89-cd90-4120-9e49-735562c50f7a)
+
+- Once the `System Properties` window is opened, select `Change` on the bottom right to open up the `Computer Name/Domain Changes` window
+- Select `Domain` under the `Memberof` field > Type in root domain name> OK
+
+![image](https://github.com/user-attachments/assets/910c9442-8470-460d-b627-7b44b81ce09c)
+
+
+- Enter the username/password for the `Domain Admin` > OK
+
+![image](https://github.com/user-attachments/assets/c263805b-13c1-40f2-9d2b-41c8d690e30f)
+
+<br> <b>Note</b> To verify that the both the server and client computer are joined, log back into the `Domain Controller` and open up Active Directory. The Client computer name should appear under the organizational unit folder named `Computers`
+
+![image](https://github.com/user-attachments/assets/00fb369a-5031-4be6-a915-ef74638f941a)
+
+- Create a new `Organizational Unit` named `_Clients` by right-clicking on `mydomain.com`
+
+![image](https://github.com/user-attachments/assets/33f781de-1c1e-4e71-8172-56345039aeb9)
+
+- Move `Client-1` under the `Computers` folder to the newly created OU  `_CLIENTS`
+
+![image](https://github.com/user-attachments/assets/15c5244b-6c9b-40b0-a02e-8c9f8fc6662d)
 
 
 
+<h3>Part 3: Creating Non-Admin Users via Powershell</h3>
+
+[![Video Title](https://img.youtube.com/vi/ozonZSqeWPM/0.jpg)](https://www.youtube.com/watch?v=ozonZSqeWPM)
+
+<b>1)Setup Remote Desktop Session for Domain Users</b>
+
+- Login into the `Client` computer as the `Domain Admin`
+
+![image](https://github.com/user-attachments/assets/a3bf6cf2-86d2-46b3-8195-6c0d94031841)
+
+- Open System Settings from the Windows start menu and select `Remote Desktop`> `Select sers that can remotely access this pc` > Add
+
+![image](https://github.com/user-attachments/assets/3e07b07e-e0e8-44ee-8aa4-a30283df3984)
+
+- With the `Select Users or Groups` window on display, <b>type</b> `Domain Users` under the field `Enter the object name to select`> `Check Names`> OK
+
+![image](https://github.com/user-attachments/assets/6d9fa5c0-b8c7-4ea0-994f-fae9566daeea)
+
+
+<b>2)Create Users with Powershell</b>
 
 
 
