@@ -171,6 +171,28 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 <b>2)Create a Domain Admin</b>
 
+- Within the Domain Controller, select the `Start` menu: <img src="https://github.com/user-attachments/assets/2cefedd8-2966-4817-ae8d-3ae3eee68ba5" height="3%" width="3%" alt="Windows Start Menu"/> and search/open `Active Directory Users and Computers(ADUC)`
+
+![image](https://github.com/user-attachments/assets/92de29e0-3144-4831-98cc-1585a8e15846)
+
+- Create an Organizational Unit (OU) named `_EMPLOYEES` by right-clicking `mydomain.com` > New > `Organizational Unit`
+
+![image](https://github.com/user-attachments/assets/a632140a-e205-4060-9db2-d9282a53c509)
+
+- Repeat the step mentioned above to create another Organizational Unit named `_ADMINS`
+
+- Create a new user within the `_ADMINS` folder and fill in the following fields: `Name`, `User Logon Name`, and `Password` > `Finish`
+
+![image](https://github.com/user-attachments/assets/c6750787-d71d-4634-b2bc-5d1656c2368c)
+
+- Add the newly created user: Domain Admin to the `Domain Admins` security group by navigating to the following:
+       - `_ADMINS` > Right-click on `Username` > `Properties`> `MemberOf`
+
+![image](https://github.com/user-attachments/assets/9eb96e76-fdf0-4984-8943-a554b741738f)
+
+With the `Select Groups` window pulled up, select `Add` and type `Domain Admins` under the field named `Enter the object names to select`> OK > Add > OK
+
+![image](https://github.com/user-attachments/assets/6d7a579c-16ad-4ec6-a357-2da0c9278b1b)
 
 
 
