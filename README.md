@@ -14,6 +14,8 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 - ### [YouTube: How to Create Users with Powershell](https://youtu.be/ozonZSqeWPM) - Part 3
 
+- ### [YouTube: Group Policy and Managing User Accounts](https://youtu.be/iZNX7W6eUZE) - Part 4
+
 
 <h2>Environments and Technologies Used</h2>
 
@@ -272,10 +274,10 @@ This tutorial outlines the implementation of on-premises Active Directory within
 ![image](https://github.com/user-attachments/assets/101d6ad8-afc0-414e-a116-b90fd4f534b1)
 
 - Verify that users are being created by opening up Active Directory User & Computers from the start menu > `_EMPLOYEES` organizational unit
+
 ![image](https://github.com/user-attachments/assets/a2717d39-0ee8-4576-bb05-c031752e678e)
 
-    <br>  - <b>Note:</b> If you receive any errors related to not being able to create a user, please make sure that you've delegated control to the `domain admin` to create users
-
+<b> Note:</b> If you receive any errors related 'access denied" or 'user not created', please make sure that you've delegated control to the `domain admin` to create users
 
 ![image](https://github.com/user-attachments/assets/f4cfab1d-9b1b-40b4-a0fb-994e74261e76)
 
@@ -290,28 +292,60 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 <h3>Part 4: Group Policy and Managing User Accounts</h3>
 
+[![Video Title](https://img.youtube.com/vi/iZNX7W6eUZE/0.jpg)](https://www.youtube.com/watch?v=iZNX7W6eUZE)
+
+<b>1)Account Lockout Configurations</b>
+
+- Log into the domain controller with an incorrect password using any random user previously created <b>(Repeat this step at least 10x)</b>
+
+![image](https://github.com/user-attachments/assets/430170ad-68f2-4d93-8fec-0d529cae0cec) 
+
+<b> Note:</b> Notice what happens after the 10th attempt, are you able to login when you use the correct password: <b>Password1</b> ?
+
+- To set an account lockout thresold, open `Group Policy Management` from the start menu
+
+- Starting from `Forest: mydomain.com` navigate through the following: `Domains` > `mydomain.com` > `Default Domain`
+
+![image](https://github.com/user-attachments/assets/5c6c735b-462f-49ea-8c64-e294b3f63364)
+
+- Right click on `Default Domain` and select 'Edit' > Conmputer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Account Lockout Policy
+<br>      *Set `Account Lockout Thresold` to 5 invalid attempts
+
+![image](https://github.com/user-attachments/assets/3a39ea49-eece-4d13-b877-005304970db5)
+
+- Attempt to re-login with an incorrect password using any random user previously created <b>(Repeat this step at least 6x)</b>. Observe account lockout behavior.
+
+![image](https://github.com/user-attachments/assets/226d55d2-a35a-4095-8276-81fc9212d779)
+
+- Unlock the account in Active Directory Users & Computers and reset the password by navigating to the following: `mydomain.com` > right-click and select `Find` > Type in username until it appears in search results > right-click and select `Properties` > `Account` > checkoff box labeled: `Unlock account: This account is currently locked out on the Active Directory Domain Controller` > OK
+
+![image](https://github.com/user-attachments/assets/a6d4faa6-46f3-40d2-829f-8643048ce4f7)
+
+<b>2)Enable and Disable Accounts</b>
+
+- Disable a random user in Active Directory Users & Computers
+- Attempt to login with the disabled account and observe the changes
+
+![image](https://github.com/user-attachments/assets/f8817138-c5fa-40bc-915a-cf469bd40494)
+
+- Re-nable the account and log back in successfully
+
+![image](https://github.com/user-attachments/assets/5c9fa58e-81dd-4532-b6e1-fabeee461ad9)
 
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+<b>3)Observing Logs</b>
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+- Review authentication and account-related logs by launhing `Event Viewer` from the start menu <br>
+        *Login into Client computer: For local events <br>
+        *Login into Domain Controller: For domain-level events (shown below)
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+<b>Note:</b> Run Event Viewer as an adminstrator if you're not logged in as the domain admin
+
+![image](https://github.com/user-attachments/assets/1d77269d-9018-44eb-88bb-535bf17a18d4)
+
+![image](https://github.com/user-attachments/assets/dbaf135b-95ff-415e-8e57-22ad730de67b)
+
+<h2>Completion</h2>
+
+
+<b>CONGRATULATIONS!</b> You've now deployed and configured an on-premises Active Directory environment in the cloud.
