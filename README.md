@@ -259,12 +259,36 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 <b>2)Create Users with Powershell</b>
 
+- Log into the `Domain Controller` as the domain admin
+
+- Open up the Start menu and search for `PowerShell ISE`. Right-click and select `Run as an Administrator`
+
+- Select the paper icon under the File tab to create a `new script`
+![image](https://github.com/user-attachments/assets/4f41cac1-3ca4-471d-9f34-6e8d5cd537e5)
 
 
+- Create multiple users by inserting the following script into the page:  [Link to Script](https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1) and select `Run` button in green
+
+![image](https://github.com/user-attachments/assets/101d6ad8-afc0-414e-a116-b90fd4f534b1)
+
+- Verify that users are being created by opening up Active Directory User & Computers from the start menu > `_EMPLOYEES` organizational unit
+![image](https://github.com/user-attachments/assets/a2717d39-0ee8-4576-bb05-c031752e678e)
+
+    <br>  - <b>Note:</b> If you receive any errors related to not being able to create a user, please make sure that you've delegated control to the `domain admin` to create users
 
 
+![image](https://github.com/user-attachments/assets/f4cfab1d-9b1b-40b4-a0fb-994e74261e76)
+
+- Attempt to log into your Client computer with one of the newly created users
+
+![image](https://github.com/user-attachments/assets/c959dfd9-bfd2-4636-ab92-f0d66c6a6c64)
+
+- Verify that you are logged into as one of the domain users by selecting `Settings` from the start menu > Accounts
+
+![image](https://github.com/user-attachments/assets/270ce194-da39-4a00-ac5f-c846d15387c7)
 
 
+<h3>Part 4: Group Policy and Managing User Accounts</h3>
 
 
 
